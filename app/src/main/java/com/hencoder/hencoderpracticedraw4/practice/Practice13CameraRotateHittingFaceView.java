@@ -80,7 +80,9 @@ public class Practice13CameraRotateHittingFaceView extends View {
         matrix.reset();
         camera.rotateX(degree);
         camera.getMatrix(matrix);
+        camera.setLocation(0, 0, 100);
         camera.restore();
+
         matrix.preTranslate(-centerX, -centerY);
         matrix.postTranslate(centerX, centerY);
         canvas.save();

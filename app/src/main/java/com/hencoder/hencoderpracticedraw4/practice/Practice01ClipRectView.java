@@ -14,6 +14,7 @@ import com.hencoder.hencoderpracticedraw4.R;
 public class Practice01ClipRectView extends View {
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     Bitmap bitmap;
+    private float density;
 
     public Practice01ClipRectView(Context context) {
         super(context);
@@ -29,6 +30,7 @@ public class Practice01ClipRectView extends View {
 
     {
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
+        density = getResources().getDisplayMetrics().density;
     }
 
     @Override
@@ -38,6 +40,7 @@ public class Practice01ClipRectView extends View {
         int left = (getWidth() - bitmap.getWidth()) / 2;
         int top = (getHeight() - bitmap.getHeight()) / 2;
 
+        canvas.clipRect(left + 10 * density, top + 10 * density, left + 80 * density, top + 46 * density);
         canvas.drawBitmap(bitmap, left, top, paint);
     }
 }
